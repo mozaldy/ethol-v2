@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-variant-numeric: diagonal-fractions;
+html {
+  scroll-behavior: smooth;
+}
+
+.active-tab {
+  @apply text-blue-700 border-blue-700;
 }

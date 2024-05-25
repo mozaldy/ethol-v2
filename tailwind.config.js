@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: ["./src/**/*.{html,js}", "./node_modules/flowbite/**/*.js"],
+  content: ["./src/**/*.{html,js,php}", "./node_modules/flowbite/**/*.js"],
   theme: {
     extend: {
       colors: {
@@ -18,6 +18,9 @@ module.exports = {
         //   900: "#1e3a8a",
         //   950: "#172554",
         // },
+      },
+      backgroundImage: {
+        pasca: "url('../assets/pasca.jpg')",
       },
     },
   },
