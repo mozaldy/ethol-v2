@@ -1,77 +1,14 @@
 <?php
 $title = "Dashboard | Home";
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 ob_start();
 ?>
 <div class="px-4 pt-6">
+<?php 
+include 'content/tabel_matkul.php';
+?>
     <div class="grid gap-4">
-      <!-- Main widget -->
-    <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-      <!-- Card header -->
-      <div class="items-center justify-between lg:flex">
-        <div class="mb-4 lg:mb-0">
-          <h3 class="mb-2 text-xl font-bold text-gray-900 dark:text-white">Mata Kuliah</h3>
-          <span class="text-base font-normal text-gray-500 dark:text-gray-400">Kuliah Semester Genap Tahun Ajaran 2023 </span>
-        </div>
-      </div>
-      <!-- Table -->
-      <div class="flex flex-col mt-6">
-        <div class="overflow-x-auto rounded-lg">
-          <div class="inline-block min-w-full align-middle">
-            <div class="overflow-hidden shadow sm:rounded-lg">
-              <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
-                <thead class="bg-gray-50 dark:bg-gray-700">
-                  <tr>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-Mata Kuliah
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-Jadwal
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-Dosen
-                    </th>
-                    <th scope="col" class="p-4 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-white">
-                    </th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white dark:bg-gray-800">
-                  <tr>
-                    <td class="p-4 text-sm font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                      Algoritma dan Struktur Data <span class="font-semibold">(ASD)</span>
-                    </td>
-                    <td class="p-4 text-sm font-normal text-gray-500 whitespace-nowrap dark:text-gray-400">
-Senin, 08:00-14:00
-                    </td>
-                    <td class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-Bu Ummi
-                    </td>
-                    <td class="p-4 text-sm font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-        <div class="flex-shrink-0">
-          <a href="#" class="inline-flex items-center p-2 text-xs font-medium uppercase rounded-lg text-primary-700 sm:text-sm hover:bg-gray-100 dark:text-primary-500 dark:hover:bg-gray-700">
-           Akses Kuliah
-            <svg class="w-4 h-4 ml-1 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
-        </div>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Card Footer -->
-      <div class="flex items-center justify-between pt-3 sm:pt-6">
-        <div class="flex-shrink-0">
-          <a href="#" class="inline-flex items-center p-2 text-xs font-medium uppercase rounded-lg text-primary-700 sm:text-sm hover:bg-gray-100 dark:text-primary-500 dark:hover:bg-gray-700">
-           Detail Mata Kuliah
-            <svg class="w-4 h-4 ml-1 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
       <!-- Main widget -->
     <div class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
       <!-- Card header -->
