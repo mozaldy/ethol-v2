@@ -4,7 +4,7 @@ include "utils/conn.php";
 
 if (isset($_POST["submit"])) {
   $email = $_POST["email"];
-  $password = $_POST["password"];
+  $password = md5($_POST["password"]);
 
   $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND password = ?");
   $stmt->bind_param("ss", $email, $password);
@@ -70,7 +70,7 @@ $conn->close();
                   name="email"
                   id="email"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
+                  placeholder="nama@gmail.com"
                   required=""
                 />
               </div>

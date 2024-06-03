@@ -36,7 +36,7 @@
                   name="email"
                   id="email"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="name@company.com"
+                  placeholder="nama@gmail.com"
                   required=""
                 />
               </div>
@@ -113,12 +113,13 @@ name="submit"
 include 'utils/conn.php';
 if(isset($_POST["submit"])){
   $email = $_POST["email"];
-  $password = $_POST["password"];
+  $password = md5($_POST["password"]);
+
   $sql = "INSERT INTO users (email, password, id_hak) VALUES ('$email', '$password', 3)";
 
 if ($conn->query($sql) === TRUE) {
     echo '<div class="mt-5 p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-700 dark:text-green-400" role="alert"><span class="font-medium">';
-    echo "New record created successfully";
+    echo 'Berhasil menambahkan user baru!';
     echo '</span></div>';
   } else {
     echo '<div class="mt-5 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-700 dark:text-green-400" role="alert"><span class="font-medium">';

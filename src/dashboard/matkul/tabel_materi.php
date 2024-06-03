@@ -29,7 +29,7 @@ Action
                   </tr>
                 </thead>
                 <tbody class="bg-white dark:bg-gray-800">
-<?php 
+<?php
 
 while ($row = $result_materi->fetch_assoc()) : ?>
                   <tr>

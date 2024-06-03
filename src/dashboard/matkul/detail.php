@@ -1,4 +1,5 @@
 <?php
+include '../../utils/guard.php';
 include "/srv/http/kuliah/uas/src/utils/conn.php";
 session_start();
 
@@ -10,35 +11,35 @@ $title = "Dashboard | Detail";
 $id_matkul_kelas = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['file'])) {
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+    // error_reporting(E_ALL);
+    // ini_set('display_errors', 1);
     $judul = $_POST['judul'];
     $deskripsi = $_POST['deskripsi'];
     $file_name = $_FILES['file']['name'];
     $file_temp = $_FILES['file']['tmp_name'];
     $file_size = $_FILES['file']['size'];
     $file_type = $_FILES['file']['type'];
-$is_tugas = isset($_POST['is_tugas']) ? 1 : 0;
+    $is_tugas = isset($_POST['is_tugas']) ? 1 : 0;
     $tenggat = isset($_POST['tenggat']) ? $_POST['tenggat'] : null;
-  $tenggat_timestamp = strtotime($tenggat);
-$tenggat_date = $tenggat ? date('Y-m-d', $tenggat_timestamp) : NULL;
-  $upload_dir = "/srv/http/kuliah/uas/assets/uploads/$id_matkul_kelas/";
+    $tenggat_timestamp = strtotime($tenggat);
+    $tenggat_date = $tenggat ? date('Y-m-d', $tenggat_timestamp) : null;
+    $upload_dir = "/srv/http/kuliah/uas/assets/uploads/$id_matkul_kelas/";
 
-if (!is_dir($upload_dir)) {
-    mkdir($upload_dir, 0777, true);
-}
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0777, true);
+    }
 
-if (!is_writable($upload_dir)) {
-    echo "Error: Upload directory is not writable.";
-    exit;
-}
+    if (!is_writable($upload_dir)) {
+        echo "Error: Upload directory is not writable.";
+        exit;
+    }
     move_uploaded_file($file_temp, $upload_dir . $file_name);
 
-  $stmt = $conn->prepare("INSERT INTO materi (nama_materi, deskripsi_materi, path_materi, ukuran_materi, tipe_materi, id_matkul_kelas, uploaded_at, tenggat, is_tugas) VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO materi (nama_materi, deskripsi_materi, path_materi, ukuran_materi, tipe_materi, id_matkul_kelas, uploaded_at, tenggat, is_tugas) VALUES (?, ?, ?, ?, ?, ?, NOW(), ?, ?)");
 
-  $upload_dir = "/kuliah/uas/assets/uploads/$id_matkul_kelas/";
-  $path = $upload_dir.$file_name;
-  $stmt->bind_param("sssisisi", $judul, $deskripsi, $path, $file_size, $file_type, $id_matkul_kelas, $tenggat_date, $is_tugas);
+    $upload_dir = "/kuliah/uas/assets/uploads/$id_matkul_kelas/";
+    $path = $upload_dir.$file_name;
+    $stmt->bind_param("sssisisi", $judul, $deskripsi, $path, $file_size, $file_type, $id_matkul_kelas, $tenggat_date, $is_tugas);
     $stmt->execute();
     $stmt->close();
 }
@@ -102,7 +103,7 @@ ob_start();
       </div>
     </div>
 
-<?php 
+<?php
 include 'tabel_materi.php';
 include 'tabel_tugas.php';
 ?>

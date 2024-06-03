@@ -1,8 +1,6 @@
 <?php 
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
-include "/srv/http/kuliah/uas/src/utils/conn.php";
 include '/srv/http/kuliah/uas/src/utils/guard.php';
+include "/srv/http/kuliah/uas/src/utils/conn.php";
 
 $id_user = $_SESSION["id_user"];
 $id_hak = $_SESSION["id_hak"];
